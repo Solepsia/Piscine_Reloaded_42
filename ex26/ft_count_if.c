@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 15:15:20 by grota             #+#    #+#             */
-/*   Updated: 2017/11/16 13:38:26 by grota            ###   ########.fr       */
+/*   Created: 2017/11/15 16:31:24 by grota             #+#    #+#             */
+/*   Updated: 2017/11/15 16:34:35 by grota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int		ft_strlen(char *str)
+int		ft_count_if(char **tab, int (*f)(char *))
 {
 	int		i;
+	int		count;
 
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(char *str)
-{
-	int		i;
-	char	*s2;
-
-	i = 0;
-	s2 = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
-	while (str[i])
+	count = 0;
+	while (tab[i])
 	{
-		s2[i] = str[i];
+		if (f(tab[i]) == 1)
+			count++;
 		i++;
 	}
-	s2[i] = '\0';
-	return (s2);
+	return (count);
 }

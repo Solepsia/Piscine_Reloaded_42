@@ -1,39 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 15:15:20 by grota             #+#    #+#             */
-/*   Updated: 2017/11/16 13:38:26 by grota            ###   ########.fr       */
+/*   Created: 2017/11/11 15:38:32 by grota             #+#    #+#             */
+/*   Updated: 2017/11/11 15:41:40 by grota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+void	ft_putchar(char c);
 
-int		ft_strlen(char *str)
+void	ft_is_negative(int n)
 {
-	int		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(char *str)
-{
-	int		i;
-	char	*s2;
-
-	i = 0;
-	s2 = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
-	while (str[i])
-	{
-		s2[i] = str[i];
-		i++;
-	}
-	s2[i] = '\0';
-	return (s2);
+	if (n < 0)
+		ft_putchar('N');
+	else
+		ft_putchar('P');
 }

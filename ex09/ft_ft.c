@@ -1,39 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_ft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 15:15:20 by grota             #+#    #+#             */
-/*   Updated: 2017/11/16 13:38:26 by grota            ###   ########.fr       */
+/*   Created: 2017/11/11 15:42:17 by grota             #+#    #+#             */
+/*   Updated: 2017/11/11 15:43:31 by grota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int		ft_strlen(char *str)
+void	ft_ft(int *nbr)
 {
-	int		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(char *str)
-{
-	int		i;
-	char	*s2;
-
-	i = 0;
-	s2 = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
-	while (str[i])
-	{
-		s2[i] = str[i];
-		i++;
-	}
-	s2[i] = '\0';
-	return (s2);
+	*nbr = 42;
 }

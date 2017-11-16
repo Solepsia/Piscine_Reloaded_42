@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   display_file.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 15:15:20 by grota             #+#    #+#             */
-/*   Updated: 2017/11/16 13:38:26 by grota            ###   ########.fr       */
+/*   Created: 2017/11/15 17:06:52 by grota             #+#    #+#             */
+/*   Updated: 2017/11/16 13:46:08 by grota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <unistd.h>
 
-int		ft_strlen(char *str)
+int		main(int argc, char **argv)
 {
-	int		i;
+	int		fd;
+	char	buf;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(char *str)
-{
-	int		i;
-	char	*s2;
-
-	i = 0;
-	s2 = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
-	while (str[i])
+	if (argc < 2)
+		write(2, "File name missing.\n", 19);
+	else if (argc > 2)
+		write(2, "Too many arguments.\n", 20);
+	else
 	{
-		s2[i] = str[i];
-		i++;
+		fd = open(argv[1], O_RDONLY);
+		while (read(fd, &buf, 1))
+			write(1, &buf, 1);
+		close(fd);
 	}
-	s2[i] = '\0';
-	return (s2);
+	return (0);
 }

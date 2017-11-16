@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 15:15:20 by grota             #+#    #+#             */
-/*   Updated: 2017/11/16 13:38:26 by grota            ###   ########.fr       */
+/*   Created: 2017/11/11 16:48:43 by grota             #+#    #+#             */
+/*   Updated: 2017/11/16 14:07:56 by grota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int		ft_strlen(char *str)
+int		ft_sqrt(int nb)
 {
 	int		i;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(char *str)
-{
-	int		i;
-	char	*s2;
-
-	i = 0;
-	s2 = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
-	while (str[i])
+	if (nb > 8)
 	{
-		s2[i] = str[i];
-		i++;
+		i = nb / 3;
+		while (i > 1 && !(nb / i == i && nb % i == 0))
+			i--;
+		if (i > 1)
+			return (i);
+		else
+			return (0);
 	}
-	s2[i] = '\0';
-	return (s2);
+	else if (nb == 1)
+		return (1);
+	else if (nb == 4)
+		return (2);
+	else
+		return (0);
 }
